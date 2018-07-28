@@ -11,12 +11,16 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
 
+import com.weathertoday.sinbad.weathertoday.Model.Weather;
+import com.weathertoday.sinbad.weathertoday.Model.WeatherResult;
 import com.weathertoday.sinbad.weathertoday.Retrofit.IOpenWeatherMap;
 import com.weathertoday.sinbad.weathertoday.Retrofit.RetrofitClient;
 import com.weathertoday.sinbad.weathertoday.common.Common;
 
 import io.reactivex.Observable;
+import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
+import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
 import io.reactivex.SingleOnSubscribe.*;
 import retrofit2.Retrofit;
@@ -85,10 +89,18 @@ public class TodayWeatherFragment extends Fragment {
 
     private void getWeatherInformation() {
 
-//        compositeDisposable.add(mServices.getWeatherByLatLong(String.valueOf(Common.current_location.getLongitude()),
-//                String.valueOf(Common.current_location.getLatitude()),Common.APP_ID,"metric")
-//
-//        );
+        compositeDisposable.add(mServices.getWeatherByLatLong(String.valueOf(Common.current_location.getLatitude()),
+                String.valueOf(Common.current_location.getLongitude()),
+                Common.APP_ID, "metrics")
+                .subscribeOn(Schedulers.io())
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<WeatherResult>() {
+                    @Override
+                    public void accept(WeatherResult weatherResult) throws Exception {
+                        
+                    }
+                })
+        );
     }
 
 }
