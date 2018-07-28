@@ -2,6 +2,7 @@ package com.weathertoday.sinbad.weathertoday;
 
 
 import android.os.Bundle;
+import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,7 +11,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.squareup.picasso.Picasso;
 import com.weathertoday.sinbad.weathertoday.Model.Weather;
 import com.weathertoday.sinbad.weathertoday.Model.WeatherResult;
 import com.weathertoday.sinbad.weathertoday.Retrofit.IOpenWeatherMap;
@@ -97,7 +100,30 @@ public class TodayWeatherFragment extends Fragment {
                 .subscribe(new Consumer<WeatherResult>() {
                     @Override
                     public void accept(WeatherResult weatherResult) throws Exception {
-                        
+                        //Load image
+                        Picasso.get().load(new StringBuilder("https://openweathermap.org/img/w/")
+                                .append(weatherResult.getWeather().get(0).getIcon())
+                                .append(".png").toString()).into(img_weather);
+                        text_city_name.setText(weatherResult.getName());
+                        text_description.setText(new StringBuilder("Weather in").append(weatherResult.getName()).toString());
+                        text_temperature.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getTemp())).append("°C").toString());
+                        text_datetime.setText(Common.ConvertUnixToDate(weatherResult.getDt()));
+                        text_pressure.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getPressure())).append("hpa").toString());
+                        text_humidity.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getHumidity())).append("%").toString());
+                        text_sunrise.setText(Common.ConvertUnixToHour(weatherResult.getSys().getSunrise()));
+                        text_sunset.setText(Common.ConvertUnixToHour(weatherResult.getSys().getSunset()));
+                        text_geo_coords.setText(new StringBuilder("[").append(weatherResult.getCoord().toString()).append("]").toString());
+
+                        //Display panel
+                        weather_parent.setVisibility(View.VISIBLE);
+                        loading.setVisibility(View.GONE);
+
+                    }
+
+                }, new Consumer<Throwable>() {
+                    @Override
+                    public void accept(Throwable throwable) throws Exception {
+                        Toast.makeText(getActivity(), "" + throwable.getMessage(), Toast.LENGTH_LONG).show();
                     }
                 })
         );
