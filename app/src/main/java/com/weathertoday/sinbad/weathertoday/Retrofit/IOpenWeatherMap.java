@@ -16,4 +16,6 @@ public interface IOpenWeatherMap {
                                                  @Query("lat") String lat,
                                                  @Query("appid") String appid,
                                                  @Query("units") String unit);
+
+
 }

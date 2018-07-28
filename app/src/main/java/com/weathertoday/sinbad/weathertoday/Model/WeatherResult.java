@@ -13,7 +13,7 @@ public class WeatherResult {
     private Wind wind;
     private Clouds clouds;
     private int dt;
-    private Sys sys;
+    private Sys  sys;
     private int id;
     private String name;
     private int cod;
