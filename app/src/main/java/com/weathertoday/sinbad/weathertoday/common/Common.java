@@ -13,14 +13,14 @@ public class Common {
 
     public static String ConvertUnixToDate(int dt) {
         Date date = new Date(dt * 1000L);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm EEE MM yyyyy");
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("hh:mm a EEE MM yyyy");
         String formatted = simpleDateFormat.format(date);
         return formatted;
     }
 
-    public static String ConvertUnixToHour(int sunrise) {
-        Date date = new Date(sunrise * 1000L);
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
+    public static String ConvertUnixToHour(int dt) {
+        Date date = new Date(dt * 1000L);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm a");
         String formatted = simpleDateFormat.format(date);
         return formatted;
     }

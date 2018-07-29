@@ -106,12 +106,12 @@ public class TodayWeatherFragment extends Fragment {
                         text_description.setText(new StringBuilder("Weather in ").append(weatherResult.getName()).toString());
                         text_temperature.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getTemp())).append("°C").toString());
                         text_datetime.setText(Common.ConvertUnixToDate(weatherResult.getDt()));
-                        text_pressure.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getPressure())).append("hpa").toString());
+                        text_pressure.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getPressure())).append(" hpa ").toString());
                         text_humidity.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getHumidity())).append("%").toString());
                         text_sunrise.setText(Common.ConvertUnixToHour(weatherResult.getSys().getSunrise()));
                         text_sunset.setText(Common.ConvertUnixToHour(weatherResult.getSys().getSunset()));
                         text_geo_coords.setText(new StringBuilder("[").append(weatherResult.getCoord().toString()).append("]").toString());
-
+                        text_wind.setText(new StringBuilder(String.valueOf(weatherResult.getWind().getSpeed())).append(" Deg").toString());
                         //Display panel
                         weather_parent.setVisibility(View.VISIBLE);
                         loading.setVisibility(View.GONE);

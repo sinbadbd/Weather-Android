@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorWhite"
+    tools:context=".ForecastFragment">
+
+    <LinearLayout
+        android:id="@+id/main_info"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/text_city_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Weather in DHAKA, BD"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="24dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/weather_5_days"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="5 Days WEATHER FORECAST"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/text_geo_coords"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="[32]"
+            android:textAlignment="center"
+            android:textColor="@color/colorPrimary"
+            android:textSize="18dp" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/recycle_forecast"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp">
+
+
+        </android.support.v7.widget.RecyclerView>
+
+    </LinearLayout>
+
+</RelativeLayout>

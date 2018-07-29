@@ -1,5 +1,12 @@
 package com.weathertoday.sinbad.weathertoday.Model;
 
+import com.weathertoday.sinbad.weathertoday.Model.weather.Clouds;
+import com.weathertoday.sinbad.weathertoday.Model.weather.Coord;
+import com.weathertoday.sinbad.weathertoday.Model.weather.Main;
+import com.weathertoday.sinbad.weathertoday.Model.weather.Sys;
+import com.weathertoday.sinbad.weathertoday.Model.weather.Weather;
+import com.weathertoday.sinbad.weathertoday.Model.weather.Wind;
+
 import java.util.List;
 
 public class WeatherResult {
@@ -13,7 +20,7 @@ public class WeatherResult {
     private Wind wind;
     private Clouds clouds;
     private int dt;
-    private Sys  sys;
+    private Sys sys;
     private int id;
     private String name;
     private int cod;
