@@ -2,7 +2,6 @@ package com.weathertoday.sinbad.weathertoday;
 
 
 import android.os.Bundle;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,18 +13,15 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.squareup.picasso.Picasso;
-import com.weathertoday.sinbad.weathertoday.Model.Weather;
 import com.weathertoday.sinbad.weathertoday.Model.WeatherResult;
 import com.weathertoday.sinbad.weathertoday.Retrofit.IOpenWeatherMap;
 import com.weathertoday.sinbad.weathertoday.Retrofit.RetrofitClient;
 import com.weathertoday.sinbad.weathertoday.common.Common;
 
-import io.reactivex.Observable;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
 import io.reactivex.schedulers.Schedulers;
-import io.reactivex.SingleOnSubscribe.*;
 import retrofit2.Retrofit;
 
 
@@ -60,6 +56,8 @@ public class TodayWeatherFragment extends Fragment {
         compositeDisposable = new CompositeDisposable();
         Retrofit retrofit = RetrofitClient.getInstance();
         mServices = retrofit.create(IOpenWeatherMap.class);
+        //  mServices.getWeatherByLatLong(String.valueOf(Common.current_location.getLatitude()), String.valueOf(Common.current_location.getLongitude()), Common.APP_ID, "metrics");
+        ;
     }
 
 
@@ -105,7 +103,7 @@ public class TodayWeatherFragment extends Fragment {
                                 .append(weatherResult.getWeather().get(0).getIcon())
                                 .append(".png").toString()).into(img_weather);
                         text_city_name.setText(weatherResult.getName());
-                        text_description.setText(new StringBuilder("Weather in").append(weatherResult.getName()).toString());
+                        text_description.setText(new StringBuilder("Weather in ").append(weatherResult.getName()).toString());
                         text_temperature.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getTemp())).append("°C").toString());
                         text_datetime.setText(Common.ConvertUnixToDate(weatherResult.getDt()));
                         text_pressure.setText(new StringBuilder(String.valueOf(weatherResult.getMain().getPressure())).append("hpa").toString());

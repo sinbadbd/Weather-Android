@@ -18,10 +18,10 @@ public class Common {
         return formatted;
     }
 
-    public static int ConvertUnixToHour(int sunrise) {
+    public static String ConvertUnixToHour(int sunrise) {
         Date date = new Date(sunrise * 1000L);
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("HH:mm");
         String formatted = simpleDateFormat.format(date);
-        return Integer.parseInt(formatted);
+        return formatted;
     }
 }
