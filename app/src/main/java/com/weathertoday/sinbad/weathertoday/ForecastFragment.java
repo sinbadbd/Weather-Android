@@ -12,12 +12,11 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.weathertoday.sinbad.weathertoday.Adapter.WeatherForecastAdapter;
-import com.weathertoday.sinbad.weathertoday.Model.WeatherForcastResult;
+import com.weathertoday.sinbad.weathertoday.Model.WeatherForecastResult;
 import com.weathertoday.sinbad.weathertoday.Retrofit.IOpenWeatherMap;
 import com.weathertoday.sinbad.weathertoday.Retrofit.RetrofitClient;
 import com.weathertoday.sinbad.weathertoday.common.Common;
 
-import io.reactivex.Scheduler;
 import io.reactivex.android.schedulers.AndroidSchedulers;
 import io.reactivex.disposables.CompositeDisposable;
 import io.reactivex.functions.Consumer;
@@ -58,7 +57,7 @@ public class ForecastFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
 
-        View itemView = inflater.inflate(R.layout.fragment_today_weather, container, false);
+        View itemView = inflater.inflate(R.layout.fragment_forcast, container, false);
 
 
         text_city_name = (TextView) itemView.findViewById(R.id.text_city_name);
@@ -82,9 +81,9 @@ public class ForecastFragment extends Fragment {
                 "metrics")
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<WeatherForcastResult>() {
+                .subscribe(new Consumer<WeatherForecastResult>() {
                     @Override
-                    public void accept(WeatherForcastResult weatherForcastResult) throws Exception {
+                    public void accept(WeatherForecastResult weatherForcastResult) throws Exception {
 
                         displayForecastWeather(weatherForcastResult);
 
@@ -98,13 +97,13 @@ public class ForecastFragment extends Fragment {
         );
     }
 
-    private void displayForecastWeather(WeatherForcastResult weatherForcastResult) {
+    private void displayForecastWeather(WeatherForecastResult weatherForecastResult) {
 
-        text_city_name.setText(new StringBuilder(weatherForcastResult.city.name));
-        text_geo_coords.setText(new StringBuilder(weatherForcastResult.city.coord.toString()));
+        text_city_name.setText(new StringBuilder(weatherForecastResult.city.name));
+        text_geo_coords.setText(new StringBuilder(weatherForecastResult.city.coord.toString()));
 
 
-        WeatherForecastAdapter adapter = new WeatherForecastAdapter(getContext(), weatherForcastResult);
+        WeatherForecastAdapter adapter = new WeatherForecastAdapter(getContext(), weatherForecastResult);
         recyclerView.setAdapter(adapter);
     }
 

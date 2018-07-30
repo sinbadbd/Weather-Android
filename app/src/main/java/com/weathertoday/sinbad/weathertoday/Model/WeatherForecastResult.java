@@ -5,7 +5,7 @@ import com.weathertoday.sinbad.weathertoday.Model.FiveDaysForcast.MyList;
 
 import java.util.List;
 
-public class WeatherForcastResult {
+public class WeatherForecastResult {
 
     public String cod;
     public double message;
@@ -13,7 +13,7 @@ public class WeatherForcastResult {
     public List<MyList> list;
     public City city;
 
-    public WeatherForcastResult() {
+    public WeatherForecastResult() {
     }
 
     public String getCod() {

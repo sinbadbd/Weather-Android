@@ -2,7 +2,6 @@ package com.weathertoday.sinbad.weathertoday.Adapter;
 
 import android.content.Context;
 import android.support.annotation.NonNull;
-import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,18 +10,18 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.squareup.picasso.Picasso;
-import com.weathertoday.sinbad.weathertoday.Model.WeatherForcastResult;
+import com.weathertoday.sinbad.weathertoday.Model.WeatherForecastResult;
 import com.weathertoday.sinbad.weathertoday.R;
 import com.weathertoday.sinbad.weathertoday.common.Common;
 
 public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecastAdapter.MyViewHolder> {
 
     Context context;
-    WeatherForcastResult weatherForcastResult;
+    WeatherForecastResult weatherForcastResult;
 
-    public WeatherForecastAdapter(Context context, WeatherForcastResult weatherForcastResult) {
+    public WeatherForecastAdapter(Context context, WeatherForecastResult weatherForecastResult) {
         this.context = context;
-        this.weatherForcastResult = weatherForcastResult;
+        this.weatherForcastResult = weatherForecastResult;
     }
 
 
@@ -30,7 +29,7 @@ public class WeatherForecastAdapter extends RecyclerView.Adapter<WeatherForecast
     @Override
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int i) {
 
-        View itemView = LayoutInflater.from(context).inflate(R.layout.fragment_forcast, parent, false);
+        View itemView = LayoutInflater.from(context).inflate(R.layout.item_weather_forecast, parent, false);
 
 
         return new MyViewHolder(itemView);

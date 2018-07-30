@@ -1,6 +1,6 @@
 package com.weathertoday.sinbad.weathertoday.Retrofit;
 
-import com.weathertoday.sinbad.weathertoday.Model.WeatherForcastResult;
+import com.weathertoday.sinbad.weathertoday.Model.WeatherForecastResult;
 import com.weathertoday.sinbad.weathertoday.Model.WeatherResult;
 
 import io.reactivex.Observable;
@@ -16,10 +16,10 @@ public interface IOpenWeatherMap {
 
 
     @GET("forecast")
-    Observable<WeatherForcastResult> getForcastWeather(@Query("lat") String lat,
-                                                       @Query("lon") String lon,
-                                                       @Query("appid") String appid,
-                                                       @Query("units") String unit);
+    Observable<WeatherForecastResult> getForcastWeather(@Query("lat") String lat,
+                                                        @Query("lon") String lon,
+                                                        @Query("appid") String appid,
+                                                        @Query("units") String unit);
 
 
 }
