@@ -1,9 +1,9 @@
 package com.weathertoday.sinbad.weathertoday.Model.FiveDaysForcast;
 
-import com.weathertoday.sinbad.weathertoday.Model.Weather.Clouds;
-import com.weathertoday.sinbad.weathertoday.Model.Weather.Sys;
-import com.weathertoday.sinbad.weathertoday.Model.Weather.Weather;
-import com.weathertoday.sinbad.weathertoday.Model.Weather.Wind;
+import com.weathertoday.sinbad.weathertoday.Model.WeatherModel.Clouds;
+import com.weathertoday.sinbad.weathertoday.Model.WeatherModel.Sys;
+import com.weathertoday.sinbad.weathertoday.Model.WeatherModel.Weather;
+import com.weathertoday.sinbad.weathertoday.Model.WeatherModel.Wind;
 
 import java.util.List;
 

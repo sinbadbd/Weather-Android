@@ -1,6 +1,6 @@
 package com.weathertoday.sinbad.weathertoday.Model.FiveDaysForcast;
 
-import com.weathertoday.sinbad.weathertoday.Model.Weather.Coord;
+import com.weathertoday.sinbad.weathertoday.Model.WeatherModel.Coord;
 
 public class City {
     public int id;
