@@ -1,11 +1,11 @@
 package com.weathertoday.sinbad.weathertoday.Model;
 
-import com.weathertoday.sinbad.weathertoday.Model.weather.Clouds;
-import com.weathertoday.sinbad.weathertoday.Model.weather.Coord;
-import com.weathertoday.sinbad.weathertoday.Model.weather.Main;
-import com.weathertoday.sinbad.weathertoday.Model.weather.Sys;
-import com.weathertoday.sinbad.weathertoday.Model.weather.Weather;
-import com.weathertoday.sinbad.weathertoday.Model.weather.Wind;
+import com.weathertoday.sinbad.weathertoday.Model.Weather.Clouds;
+import com.weathertoday.sinbad.weathertoday.Model.Weather.Coord;
+import com.weathertoday.sinbad.weathertoday.Model.Weather.Main;
+import com.weathertoday.sinbad.weathertoday.Model.Weather.Sys;
+import com.weathertoday.sinbad.weathertoday.Model.Weather.Weather;
+import com.weathertoday.sinbad.weathertoday.Model.Weather.Wind;
 
 import java.util.List;
 
